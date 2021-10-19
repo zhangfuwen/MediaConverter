@@ -36,3 +36,10 @@ jobs:
       # See https://cmake.org/cmake/help/latest/manual/ctest.1.html for more detail
       run: cpack
       
+    - uses: actions/upload-artifact@v2
+      with:
+        name: my-deb
+        path: ${{github.workspace}}/build/media-converter-1.1-Linux.deb
+      
+      
+      
