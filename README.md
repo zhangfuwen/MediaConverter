@@ -7,11 +7,11 @@ converter audio and video to a specific format
 
 # 界面截图
 
-![起始界面](doc/res/1.png 起始界面)
+![起始界面](doc/res/1.png "起始界面")
 
-![音频提取界面](doc/res/2.png 音频提取界面)
+![音频提取界面](doc/res/2.png "音频提取界面")
 
-![音频转换界面](doc/res/3.png 音频转换界面)
+![音频转换界面](doc/res/3.png "音频转换界面")
 
 # 功能
 
