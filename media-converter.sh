@@ -54,13 +54,62 @@ function extract_audio() {
 }
 
 function audio_convert() {
-	ans=$(yad --title=音频转换 --form --field="选择一个音频文件":FL --field="转换后的音频文件保存为" --button=确定:0 --button=直接退出:2 )
-	if [[ $? == 0 ]] ; then
-		echo $ans
-	else	
-		return 1;
-	fi
-
+	ans=$(yad --title=音频转换 --form --field="选择一个音频文件":FL --field="格式:CB"  --field="转换后的音频文件保存为" --field="格式:CB" "" '^自动!wav!pcm!mp3!opus' "" '^wav!pcm!mp3!opus' --button=确定:0 --button=直接退出:2 )
+	ret=$?
+	case $ret in
+		0)
+			echo $ans
+			file1=$(echo $ans | awk 'BEGIN {FS="|" } { print $1 }')
+			format1=$(echo $ans | awk 'BEGIN {FS="|" } { print $2 }')
+			file2=$(echo $ans | awk 'BEGIN {FS="|" } { print $3 }')
+			format=$(echo $ans | awk 'BEGIN {FS="|" } { print $4 }')
+			echo "file1 $file1"
+			echo "format1 $format1"
+			echo "file2 $file2"
+			echo "format2 $format"
+			case $format1 in
+				自动)
+					format1=""
+					;;
+				pcm) 
+					format1=" -f s16le ";
+					;;
+				*)
+					format1=" -f $format1 "
+					;;
+			esac
+			case $format in
+				wav)
+					format=" -f wav "
+					if [[ $file2 != *wav ]]; then file2=$file2.wav; fi
+				;;
+				pcm)
+					format=" -f s16le "
+					if [[ $file2 != *pcm ]]; then file2=$file2.s16le.pcm; fi
+				;;
+				mp3)
+					format=" -f mp3 "
+					if [[ $file2 != *mp3 ]]; then file2=$file2.mp3; fi
+				;;
+				*)
+					format=" -f $format "
+				;;
+			esac
+			if ffmpeg $foramt1 -i $file1 $format $file2; then
+				if yad --title "完成" --text  "$(realpath $file2)" --button=播放:0 --button=退出:1; then
+					ffplay $format $file2
+				fi
+			else
+				yad --title "失败了"
+			fi
+		;;
+		2)
+			exit 0
+		;;
+		*)
+			return 1;
+		;;
+	esac
 }
 
 function video_convert() {
