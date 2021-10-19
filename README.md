@@ -22,10 +22,10 @@ converter audio and video to a specific format
 - [ ] 视频格式间互间转换
 
 - [ ] 图像格式间互相转换
-- [ ] png to rgba
-- [ ] png to rgb
-- [ ] everything to png
-- [ ] everything to jpeg
+  - [ ] png to rgba
+  - [ ] png to rgb
+  - [ ] everything to png
+  - [ ] everything to jpeg
   
 - [ ] 视频提取图像
   - [ ] 提取所有I帧为png
