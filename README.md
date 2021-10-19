@@ -1,3 +1,5 @@
+[English(./README_en.md)
+
 # MediaConverter
 
 一个Linux下的音频提取、格式转换、图像格式处理GUI应用。
