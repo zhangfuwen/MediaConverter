@@ -5,6 +5,12 @@ converter audio and video to a specific format
 
 现在通过yad和脚本提供一个简单的GUI界面，目的是方便操作。
 
+# 界面截图
+
+![起始界面](doc/res/1.png)
+![音频提取界面)(doc/res/2.png)
+![音频转换界面)(doc/res/3.png)
+
 # 功能
 
 - [x] 从视频文件中提取音频(使用ffmpg)，支持的格式
