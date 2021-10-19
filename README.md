@@ -19,25 +19,25 @@ converter audio and video to a specific format
   - [x] wav
   - [x] opus
   
-- [] 视频格式间互间转换
+- [ ] 视频格式间互间转换
 
-- [] 图像格式间互相转换
-- [] png to rgba
-- [] png to rgb
-- [] everything to png
-- [] everything to jpeg
+- [ ] 图像格式间互相转换
+- [ ] png to rgba
+- [ ] png to rgb
+- [ ] everything to png
+- [ ] everything to jpeg
   
-- [] 视频提取图像
-  - [] 提取所有I帧为png
-  - [] 提取所有I帧为rgba
+- [ ] 视频提取图像
+  - [ ] 提取所有I帧为png
+  - [ ] 提取所有I帧为rgba
   
-- [] 图像转视频
-  - [] 播放图像序列 png
-  - [] 播放图像序列 rgba
-  - [] 播放图像序列 yuv
-  - [] 图像序列转视频 png
-  - [] 图像序列转视频 rgba
-  - [] 图像序列转视频 yuv
+- [ ] 图像转视频
+  - [ ] 播放图像序列 png
+  - [ ] 播放图像序列 rgba
+  - [ ] 播放图像序列 yuv
+  - [ ] 图像序列转视频 png
+  - [ ] 图像序列转视频 rgba
+  - [ ] 图像序列转视频 yuv
 
 # 贡献代码
 
