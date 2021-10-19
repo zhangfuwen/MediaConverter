@@ -1,0 +1,11 @@
+[Desktop Entry]
+Categories=AudioVideo;
+Comment=Convert audio and video formats
+Exec=/usr/local/bin/media-converter.sh %u
+GenericName=media-converter
+Icon=media-converter
+Keywords=media-converter;
+MimeType=video/mpeg;video/x-msvideo;video/quicktime;video/x-ms-asf;video/x-ms-wmv;
+Name=音视频格式转换器
+Type=Application
+X-Deepin-Vendor=user-custom
