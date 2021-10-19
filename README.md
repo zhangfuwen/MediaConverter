@@ -1,5 +1,6 @@
 # MediaConverter
-converter audio and video to a specific format
+
+一个Linux下的音频提取、格式转换、图像格式处理GUI应用。
 
 工作中经常遇到需要将音频、视频、图片进行转码等需求，ffmpeg、image magick等命令行应用可以完成这些工作，但是命令行不太容易记，用过一次很久不用的话后面就容易忘记。
 
