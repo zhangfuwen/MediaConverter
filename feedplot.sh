@@ -1,4 +1,4 @@
-
+#!/bin/bash
 function feedplot()
 {
     local file=$1
