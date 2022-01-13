@@ -1,7 +1,7 @@
 #!/bin/bash
 
 function main() {
-	yad --button=从视频中提取音频:1 --button=音频格式转换:2 --button=视频格式转换:3 --button=退出:0
+	yad --button=从视频中提取音频:1 --button=音频格式转换:2 --button=视频格式转换:3 --button=feedplot:4 --button=退出:0
 	case $? in
 	0)
 		return 255
@@ -22,6 +22,9 @@ function main() {
 			echo "完成"
 		done
 		;;
+    4)  while feedplot.sh; do
+            echo "done"
+        done
 	esac
 }
 
