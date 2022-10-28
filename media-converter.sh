@@ -1,7 +1,7 @@
 #!/bin/bash
 
 function main() {
-	yad --button=从视频中提取音频:1 --button=音频格式转换:2 --button=视频格式转换:3 --button=feedplot:4 --button=退出:0
+	yad --button=从视频中提取音频:1 --button=音频格式转换:2 --button=视频格式转换:3 --button=feedplot:4 --button=burn_image:5 --button=退出:0
 	case $? in
 	0)
 		return 255
@@ -25,8 +25,40 @@ function main() {
     4)  while feedplot.sh; do
             echo "done"
         done
+        ;;
+    5) burn_image 
+        ;;
 	esac
 }
+
+function select_disk() {
+    IFS=$'\n' disks=$(zenity --list --title="select" --column "selection" $(lsblk -no path,vendor,size,type /dev/sd*  2> /dev/null| grep disk))
+    if [[ $? == 0 ]]; then
+        selected_disk=$(echo $disks | awk '{print $1;}')
+        echo $selected_disk
+        return 0
+    fi
+    return -1
+}
+
+function input_url() {
+    url=$(zenity --title="win" --entry --text="input url")
+    if [[ $? != 0 ]]; then
+        echo "nothing"
+        return -1
+    else
+        echo $url
+        return 0
+    fi
+}
+
+function burn_image() {
+    command -v zenity || sudo apt -y install zenity
+    disk=$(select_disk) && url=$(input_url) && echo "dd if=$url of=$disk" \
+    && curl -u zhangfuwen:zhangfuwen --silent $url | \
+    sudo dd conv=noerror,sync iflag=fullblock oflag=direct,sync status=progress bs=1M of=$disk
+}
+
 
 function extract_audio() {
 	ans=$(yad --title=提取音频 --form --field="选择一个视频文件":FL --field="音频文件保存为" --button=确定:0 --button=直接退出:2)
